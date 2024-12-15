@@ -6,6 +6,12 @@
  @author Francisco Igor franciscoigor@gmail.com
 
 -->
+ <!--
+
+ Image Resizer
+ Edited by Laurin "lyniat" Muth https://github.com/Lyniat
+
+-->
 <head>
 	<title>Image resizer</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
@@ -34,7 +40,7 @@
 			<span>Image Resizer</span>
 		</div>
 		<div class="icons">
-		<a href="https://github.com/fraigo/image-resizer" title="GitHub project"><img src="https://github.githubassets.com/favicons/favicon.svg" height="24"></a>
+		<a href="https://github.com/Lyniat/image-resizer" title="GitHub project"><img src="https://github.githubassets.com/favicons/favicon.svg" height="24"></a>
 		</div>
 	</div>
 
@@ -42,12 +48,11 @@
 			<input type=file id=filename accept=".png,.svg,.gif,.jpg" onchange="selectFile(this)" class="hidden">
 			<div><b>Select local image</b></div>
 			<button  class="open" type="button" onclick="openFile()">Select file</button>
-			<div><b>Image name</b></div>
-			<input type=text class="panel-input" id=image value="image">
-			<div><b>File name format</b></div>
-			<input type=text class="panel-input" id=imgname value="{image}.{width}x{height}">
-			<div><b>Configuration set</b></div>
-			<select id="config" class="panel-input" onchange="changeConfig(this.value)" >
+			<div><b>Custom resolution (%)</b></div>
+			<input type="number" min="1" max="400" class="panel-input" id="custom_percent" value="">
+			<!--<input type=text class="panel-input" id=imgname value="{image}.{width}x{height}">-->
+			<!--<div><b>Configuration set</b></div>-->
+			<!--<select id="config" class="panel-input" onchange="changeConfig(this.value)" >-->
 			<option value="default">default</option>
 			</select>
 			<div id="customsize" style="display:none">
@@ -65,15 +70,12 @@
 					<h2>Quick start</h2>
 					<ol>
 						<li>Open an image from your computer using the <b>Select file</b> button.</li>
-						<li>Press the <b>Resize</b> button to start generating default resized images</li>
-						<li>Clic in some image generated to <b>download</b> a copy</li>
+						<li>Click in some image generated to <b>download</b> a copy</li>
 					</ol>
 
 					Optionally, you can do some additional configurations to get more specific output:
 					<ul>
-						<li>Enter an <b>Image name</b>. It will be the base name for your exported images.</li>
-						<li>Enter a <b>File name format</b>. You can compose a file name using {name} {width} {height}.</li>
-						<li>Select a <b>Configuration set</b>. Each set has predefined sizes and filename formats for different targets (android, iOS,windows)</li>
+						<li>Enter a <b>custom resolution</b> (1% - 400%).</li>
 					</ul>
 				</div>
 			</div>
@@ -84,7 +86,7 @@
 <script type="text/javascript" src="resizer.js"></script>
 <script type="text/javascript" src="config.js"></script>
 <script>
-
+/*
 //fill sizes
 document.body.onload=function(e){
 	var config=document.getElementById("config");
@@ -96,6 +98,7 @@ document.body.onload=function(e){
 		config.appendChild(o);
 	}
 }
+	*/
 
 
 

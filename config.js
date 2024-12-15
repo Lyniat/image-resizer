@@ -1,5 +1,14 @@
 
 var sizes=[];
+sizes["percentage"]=[
+	{p:10},
+	{p:25},
+	{p:33},
+	{p:50},
+	{p:67},
+	{p:75},
+	{p:100},
+];
 sizes["default"]=[
 	{width:16,height:16},
 	{width:32,height:32},
@@ -102,6 +111,9 @@ sizes["custom"] = [
 ];
 
 var names=[];
+names["percentage"]="{image}_{percentage}_{width}x{height}";
+//names["default"]="{image}.{width}x{height}";
+/*
 names["default"]="{image}.{width}x{height}";
 names["simple"]="{image}";
 names["screen"]="{image}.{width}x{height}";
@@ -112,5 +124,6 @@ names["icon/windows"]="{id}Logo.scale-{scale}";
 names["icon/wp8"]="{id}";
 names["screen/android"]="drawable-{scale}-{id}-screen";
 names["custom"]="{image}.{width}x{height}";
+*/
 
 

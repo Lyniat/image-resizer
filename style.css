@@ -14,6 +14,7 @@ input, button, select{
 	width:95%;
 	height:2em;
 	margin:5px;
+	font-weight: bold;
 }
 
 button{
@@ -98,7 +99,6 @@ button.open{
 button.resize{
 	background-color: #4C4;
 	color:#FFF;
-	font-size: 2em;
 	font-weight: bold;
 }
 
@@ -112,7 +112,7 @@ button.resize{
 	width:210px;
 	height:210px;
 	text-align:center;
-	font-size:8pt;
+	font-size:16pt;
 	margin:3px;
 	vertical-align: top;
 }
@@ -146,4 +146,13 @@ button.resize{
 		margin-left: 0px;
 		margin-right:0px;
 	}
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
 }
