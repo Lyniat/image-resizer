@@ -14,6 +14,8 @@
 -->
 <head>
 	<title>Image resizer</title>
+	<link rel="stylesheet" href="pico.min.css">
+	<link rel="stylesheet" href="flexboxgrid.min.css" type="text/css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<meta charset="utf-8" >
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,8 +33,9 @@
 	<link rel="icon" type="image/png" href="logo.png" sizes="256x256">
 	<link rel="apple-touch-icon" sizes="256x256" href="logo.png">
 </head>
-<body >
+<body class="container">
 	<div class="header">
+			<!--
 		<div class="icon">
 			<img src="logo.png" height="24" >
 		</div>
@@ -42,9 +45,10 @@
 		<div class="icons">
 		<a href="https://github.com/Lyniat/image-resizer" title="GitHub project"><img src="https://github.githubassets.com/favicons/favicon.svg" height="24"></a>
 		</div>
+		-->
 	</div>
-
-	<div class="tools">
+	<div class="row">
+	<div class="tools col-xs-2">
 			<input type=file id=filename accept=".png,.svg,.gif,.jpg" onchange="selectFile(this)" class="hidden">
 			<div><b>Select local image</b></div>
 			<button  class="open" type="button" onclick="openFile()">Select file</button>
@@ -64,8 +68,8 @@
 			<div><b>Image preview</b></div>
 			<img src="blank.png" id=original >
 	</div>
-	<div class="content">
-			<div id="container" class="">
+	<div class="content col-xs-10">
+			<div id="container">
 				<div id="help">
 					<h2>Quick start</h2>
 					<ol>
@@ -79,6 +83,7 @@
 					</ul>
 				</div>
 			</div>
+	</div>
 	</div>
 
 	<div class="debug" id="footer"></div>

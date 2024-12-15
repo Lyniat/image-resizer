@@ -149,6 +149,7 @@ function readUrl(url){
 	var imagename = names["percentage"];
 	var image = document.getElementById("filename").files[0].name.replace(".png","").replace(".svg","").replace(".gif","").replace(".jpg","");
 	var container=document.getElementById("container");
+	container.className = "grid_container";
 	var img = new Image;
 	
 	container.innerHTML="";
