@@ -87,7 +87,6 @@ function createCanvas(img,width,height,percent,name,type,user_val){
 	var name=name+".png";
 	var factor=width/img.width;
 	
-	//label.innerHTML=name+"<br>"+width+"x"+height;
 	label.innerHTML="<br>"+percent+"% => "+width+"x"+height;
 	canvas.width=width;
 	canvas.height=height;
@@ -103,7 +102,7 @@ function createCanvas(img,width,height,percent,name,type,user_val){
 	newHeight=Math.round(img.height*factor);
 	padLeft=(width-newWidth)/2;
 	padTop=(height-newHeight)/2; 
-	//console.log(img.width,img.height,canvas.width,canvas.height,factor,newWidth,newHeight,padLeft,padTop);
+
 	if (type=="image/svg+xml"){
 		ctx.drawImage(img,-padTop,-padLeft);
 	}else{
@@ -114,7 +113,7 @@ function createCanvas(img,width,height,percent,name,type,user_val){
 	link.download=name;
 	link.appendChild(canvas);
 	link.appendChild(label);
-	//imgcontainer.style.paddingTop=(height/2)+"px";
+
 	if(user_val){
 		console.log("user_val");
 		imgcontainer.className='imgcontainer user_val';
@@ -147,23 +146,16 @@ function changeConfig(value){
  */
 function readUrl(url){
 	changeConfig(names["percentage"]);
-	//var imagename=document.getElementById("imgname");
 	var imagename = names["percentage"];
-	//var image=document.getElementById("image");
 	var image = document.getElementById("filename").files[0].name.replace(".png","").replace(".svg","").replace(".gif","").replace(".jpg","");
 	var container=document.getElementById("container");
-	//var config=document.getElementById("config");
+	container.className = "grid_container";
 	var img = new Image;
 	
 	container.innerHTML="";
 	img.onload = function(){
-		//var cfg=sizes[config.value];
-		//var config = "percentage";
-		//var cfg=sizes[config];
-		//console.log(cfg);
 		var cfg = [...sizes["percentage"]]
 		var custom = document.getElementById("custom_percent").value;
-		console.log(custom);
 		if(!isNaN(custom) && custom != 0){
 			custom = custom <1 ? 1 : custom;
 			custom = custom >400 ? 400 : custom;
@@ -178,47 +170,14 @@ function readUrl(url){
 			var new_w = Math.floor((percent / 100) * org_w);
 			var new_h = Math.floor((percent / 100) * org_h);
 			var user_val = cfg[i].user == true;
-			console.log(user_val);
-			var name=imagename//.value
+			var name=imagename
 				.replace("{image}",image)
-				//.replace("{width}",cfg[i].width)
-				//.replace("{height}",cfg[i].height)
 				.replace("{width}", new_w)
 				.replace("{height}", new_h)
 				.replace("{percentage}", percent + "percent");
-				//.replace("{id}",cfg[i].id?cfg[i].id:'')
-				//.replace("{scale}",cfg[i].scale?cfg[i].scale:'')
-				//.replace("{type}",cfg[i].type?cfg[i].type:'');
-			//container.appendChild(createCanvas(img,cfg[i].width,cfg[i].height,name,image.type));
-			//console.log((cfg[i].p / 100) * org_w);
 			container.appendChild(createCanvas(img,new_w,new_h,percent,name,image.type,user_val));
 		}
 	};
 	img.src = url;
 	
 }
-
-/*
-function change_percentage(){
-	var container=document.getElementById("container");
-	var children = container.children;
-	
-	var to_replace;
-	for(i = 0; i < children.length; i++){
-		var e = children[i];
-		if (e.classList.contains('custom_percent')){
-			to_replace = e;
-		}
-	}
-	if(to_replace != undefined){
-		container.remove(to_replace);
-	}
-
-	var custom_value = document.getElementById("custom_percent").value;
-
-	container.appendChild(createCanvas(img,new_w,new_h,percent,name,image.type));
-
-	console.log(custom_value);
-}
-	*/
-
